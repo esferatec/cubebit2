@@ -21,9 +21,9 @@ namespace custom {
     //% block="[LCD] show compass direction"
     export function showCompasssDirection(): void {
         lcd.clearDisplay()
-        lcd.showString("compass direction", 0, 0)
+        lcd.showString("compass", 0, 0)
         lcd.showNumber(input.compassHeading(), 0, 1)
-        lcd.showString(compassDirectionText(), 8, 1)
+        lcd.showString(compassDirectionText(), 4, 1)
     }
 
     /**
@@ -32,7 +32,16 @@ namespace custom {
     //% block="[LCD] show compass north"
     export function showCompasssNorth(): void {
         lcd.clearDisplay()
-        lcd.showString("compass north", 0, 0)
+        lcd.showString("compass", 0, 0)
         lcd.showString(compassDirectionNorth(), 0, 1)
+    }
+
+    /**
+     * shows dice
+     */
+    //% block="[LCD] show dice"
+    export function showDice(): void {
+        lcd.clearDisplay()
+        lcd.showString("dice", 0, 0)
     }
 }
