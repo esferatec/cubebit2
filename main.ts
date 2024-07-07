@@ -14,7 +14,7 @@ let lcd_page = 0
 let lcd_page_max = 0
 let lcd_page_min = 0
 lcd_page_min = 1
-lcd_page_max = 4
+lcd_page_max = 5
 lcd_page = 1
 lcd.init()
 lcd.showString("Hello cube:bit", 1, 0)
@@ -30,5 +30,8 @@ basic.forever(function () {
     }
     if (lcd_page == 4) {
         custom.showCompasssDirection()
+    }
+    if (lcd_page == 5) {
+        custom.showCompasssNorth()
     }
 })
