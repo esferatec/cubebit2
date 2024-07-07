@@ -12,7 +12,7 @@ namespace custom {
 
     function compassDirectionNorth() {
         const bearing = input.compassHeading();
-        return (bearing < 22.5 || bearing > 337.5) ? "N" : " ";
+        return (bearing < 5 || bearing > 355) ? "north" : "not north";
     }
 
     /**
@@ -33,7 +33,6 @@ namespace custom {
     export function showCompasssNorth(): void {
         lcd.clearDisplay()
         lcd.showString("compass north", 0, 0)
-        lcd.showNumber(input.compassHeading(), 0, 1)
-        lcd.showString(compassDirectionNorth(), 8, 1)
+        lcd.showString(compassDirectionNorth(), 0, 1)
     }
 }
