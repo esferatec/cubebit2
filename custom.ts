@@ -1,38 +1,23 @@
-
-/**
-* Use this file to define custom functions and blocks.
-* Read more at https://makecode.microbit.org/blocks/custom
-*/
-
-enum MyEnum {
-    //% block="one"
-    One,
-    //% block="two"
-    Two
-}
-
 /**
  * Custom blocks
  */
 //% weight=100 color=#0fbc11 icon=""
 namespace custom {
-    /**
-     * TODO: describe your function here
-     * @param n describe parameter here, eg: 5
-     * @param s describe parameter here, eg: "Hello"
-     * @param e describe parameter here
-     */
-    //% block
-    export function foo(n: number, s: string, e: MyEnum): void {
-        // Add code here
+    function compassDirectionText() {
+        const bearing = input.compassHeading();
+        const directions = ["N", "NE", "NE2", "E", "E2", "SE", "SE2", "S", "S2", "SW", "SW2", "W", "W2", "NW", "NW2", "N2"];
+        const index = Math.floor((bearing % 360) / 22.5);
+        return directions[index];
     }
 
     /**
-     * TODO: describe your function here
-     * @param value describe value here, eg: 5
+     * shows compass direction
      */
-    //% block
-    export function fib(value: number): number {
-        return value <= 1 ? value : fib(value -1) + fib(value - 2);
+    //% block="[LCD] show compass direction"
+    export function showCompasssDirection(): void {
+        lcd.clearDisplay()
+        lcd.showString("compass direction", 0, 0)
+        lcd.showNumber(input.compassHeading(), 0, 1)
+        lcd.showString(compassDirectionText(), 8, 1)
     }
 }
