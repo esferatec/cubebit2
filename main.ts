@@ -20,13 +20,6 @@ lcd.init()
 lcd.showString("Hello cube:bit", 1, 0)
 basic.forever(function () {
     basic.showNumber(lcd_page)
-    if (lcd_page == 2) {
-    	
-    } else if (lcd_page == 3) {
-    	
-    } else {
-        lcd.showString("Hello cube:bit", 1, 0)
-    }
     if (lcd_page == 4) {
         custom.showCompasssDirection()
     }
