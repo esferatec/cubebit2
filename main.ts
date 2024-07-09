@@ -3,27 +3,22 @@ function setTemperature () {
     temperature_max = 0
     temperature_min = 0
 }
-function setSoundLevel() {
-    soundlevel_cur = 0
-    soundlevel_min = 0
-    soundlevel_max = 0
-}
 input.onButtonPressed(Button.A, function () {
     lcd_page += -1
     if (lcd_page < lcd_page_min) {
         lcd_page = lcd_page_max
     }
 })
+input.onButtonPressed(Button.AB, function () {
+    setTemperature()
+    setSoundLevel()
+    lcd_page = 0
+})
 input.onButtonPressed(Button.B, function () {
     lcd_page += 1
     if (lcd_page > lcd_page_max) {
         lcd_page = lcd_page_min
     }
-})
-input.onButtonPressed(Button.AB, function () {
-    setTemperature()
-    setSoundLevel()
-    lcd_page = 0
 })
 function checkTemperature () {
     temperature_cur = input.temperature()
@@ -33,6 +28,11 @@ function checkTemperature () {
     if (temperature_cur > temperature_max) {
         temperature_max = temperature_cur
     }
+}
+function setSoundLevel () {
+    soundlevel_cur = 0
+    soundlevel_min = 0
+    soundlevel_max = 0
 }
 function checkSoundLevel () {
     soundlevel_cur = input.soundLevel()
@@ -70,7 +70,7 @@ basic.forever(function () {
         custom.showTemperature()
     }
     if (lcd_page == 2) {
-        custom.showTemperature()
+        custom.showSoundLevel()
     }
     if (lcd_page == 4) {
         custom.showCompasssDirection()

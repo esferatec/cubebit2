@@ -16,7 +16,7 @@ namespace custom {
     }
 
     /**
-     * shows temperature current, min and max
+     * shows current, minimum and maximum temperature
      */
     //% block="[LCD] show temperature"
     export function showTemperature(): void {
@@ -31,7 +31,7 @@ namespace custom {
     }
 
     /**
-     * shows temperature current, min and max
+     * shows current, minimum and maximum sound level
      */
     //% block="[LCD] show sound level"
     export function showSoundLevel(): void {
