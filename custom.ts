@@ -15,8 +15,6 @@ namespace custom {
         return (bearing < 5 || bearing > 355) ? "north" : "not north";
     }
 
-
-
     /**
      * shows temperature current, min and max
      */
@@ -24,13 +22,28 @@ namespace custom {
     export function showTemperature(): void {
         lcd.clearDisplay()
         lcd.showString("temperature", 0, 0)
-        lcd.showNumber(cur_temperature, 1, 1)
-        lcd.showNumber(min_temperature, 5, 1)
-        lcd.showNumber(max_temperature, 9, 1)
+        lcd.showString("c", 0, 1)
+        lcd.showNumber(temperature_cur, 1, 1)
+        lcd.showString("i", 6, 1)
+        lcd.showNumber(temperature_min, 7, 1)
+        lcd.showString("a", 12, 1)
+        lcd.showNumber(temperature_max, 13, 1)
     }
 
-
-
+    /**
+     * shows temperature current, min and max
+     */
+    //% block="[LCD] show sound level"
+    export function showSoundLevel(): void {
+        lcd.clearDisplay()
+        lcd.showString("sound level", 0, 0)
+        lcd.showString("c", 0, 1)
+        lcd.showNumber(soundlevel_cur, 1, 1)
+        lcd.showString("i", 6, 1)
+        lcd.showNumber(soundlevel_min, 7, 1)
+        lcd.showString("a", 12, 1)
+        lcd.showNumber(soundlevel_max, 13, 1)
+    }
 
     /**
      * shows compass direction
