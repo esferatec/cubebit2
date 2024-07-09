@@ -1,7 +1,7 @@
 function setTemperature () {
-    temperature_cur = 0
-    temperature_max = 0
-    temperature_min = 0
+    temperature_cur = input.temperature()
+    temperature_max = temperature_cur
+    temperature_min = temperature_cur
 }
 input.onButtonPressed(Button.A, function () {
     lcd_page += -1
@@ -30,9 +30,9 @@ function checkTemperature () {
     }
 }
 function setSoundLevel () {
-    soundlevel_cur = 0
-    soundlevel_min = 0
-    soundlevel_max = 0
+    soundlevel_cur = input.soundLevel()
+    soundlevel_min = soundlevel_cur
+    soundlevel_max = soundlevel_cur
 }
 function checkSoundLevel () {
     soundlevel_cur = input.soundLevel()
